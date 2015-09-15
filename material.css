@@ -6799,6 +6799,7 @@ input.mdl-button[type="submit"] {
   text-transform: uppercase;
   color: rgba(255,255,255, 0.6);
   overflow: hidden; }
+
   @media screen and (max-width: 1024px) {
     .mdl-layout__tab {
       padding: 0 12px 0 12px; } }
@@ -6842,6 +6843,7 @@ input.mdl-button[type="submit"] {
     display: none; }
   .mdl-layout.is-upgraded .mdl-layout__tab-panel.is-active {
     display: block; }
+    
 
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
