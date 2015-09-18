@@ -4,7 +4,7 @@
 https://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or agreed to in writing, software distributed
 under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and limitations under the License -->
-<html lang="en">
+<html ng-app="JMU" lang="en">
   
   <head>
     <meta charset="utf-8">
@@ -37,8 +37,18 @@ See the License for the specific language governing permissions and limitations 
     <script src="https://drrjhlchpvi7e.cloudfront.net/libs/stamplay-js-sdk/1.2.9/stamplay.min.js"></script>
     <!-- Jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+   
     <!-- Main script -->
+    
     <script src="js/main.js"></script>
+     
+     <!-- AngularJS 
+    <script src=" https://code.angularjs.org/1.4.6/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
+     <script src="bower_components/angular-stamplay/angular-stamplay.js"></script>
+     <script src="bower_components/angular-stamplay/angular-stamplay.js"></script>
+-->
+     
     <style>
       #view-source {
         position: fixed;
@@ -68,6 +78,7 @@ See the License for the specific language governing permissions and limitations 
             <form method="post" action="" id="loginform">Email:
               <input name="email" type="email">Password:
               <input name="pass" type="password">
+       
               <input type="submit" value="Login" id="login">
               <input type="submit" value="Logout" id="logout">
             </form>
@@ -110,6 +121,7 @@ See the License for the specific language governing permissions and limitations 
               <li class="mdl-menu__item">Dolor</li>
             </ul>
           </section>
+          
           <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
             <header class="section__play-btn mdl-cell mdl-cell--3-col-desktop mdl-cell--2-col-tablet mdl-cell--4-col-phone mdl-color--teal-100 mdl-color-text--white">
               <i class="material-icons">group_work</i>
@@ -117,16 +129,15 @@ See the License for the specific language governing permissions and limitations 
             <div class="mdl-card mdl-cell mdl-cell--9-col-desktop mdl-cell--6-col-tablet mdl-cell--4-col-phone">
               <div class="mdl-card__supporting-text">
                 <h4>Create a new Group</h4>
-                <form method="post" action="" id="creategroupform">Destination:
-                  <input name="destination" type="text">
-                  <br/>Departure time:
-                  <input name="departure" type="text">
-                  <br/>Availabe seats:
-                  <input name="seats" type="text">
+                <form method="post" action="" id="creategroupform">
+                  To:
+                  <input name="to" type="text" required>
+                  <br/>From:
+                  <input name="from" type="text" required>
                   <br/>
                   <input type="submit" value="create group" id="creategroup">
-                  
-                </form>
+                    <input type="submit" value="Console get" id="getrides">
+                  </form>
               </div>
               <div class="mdl-card__actions">
                 <a href="#" class="mdl-button">JOIN GROUP</a>
@@ -141,6 +152,42 @@ See the License for the specific language governing permissions and limitations 
               <li class="mdl-menu__item">Dolor</li>
             </ul>
           </section>
+          
+          <div ng-controller="MainCtrl as ctrl">
+             <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+            <header class="section__play-btn mdl-cell mdl-cell--3-col-desktop mdl-cell--2-col-tablet mdl-cell--4-col-phone mdl-color--teal-100 mdl-color-text--white">
+              <i class="material-icons">group_work</i>
+            </header>
+            <div class="mdl-card mdl-cell mdl-cell--9-col-desktop mdl-cell--6-col-tablet mdl-cell--4-col-phone">
+              <div class="mdl-card__supporting-text">
+                <h4>Create a new Group</h4>
+                <form method="post" action="" id="creategroupform">
+                  To:
+                  <input name="to" type="text" required>
+                  <br/>From:
+                  <input name="from" type="text" required>
+                  <br/>
+                  <input type="submit" value="create group" id="creategroup">
+                    <input type="submit" value="Console get" id="getrides">
+                  </form>
+              </div>
+              <div class="mdl-card__actions">
+                <a href="#" class="mdl-button">JOIN GROUP</a>
+              </div>
+            </div>
+            
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="btn1">
+              <i class="material-icons">more_vert</i>
+            </button>
+            <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right" for="btn1">
+              <li class="mdl-menu__item">Lorem</li>
+              <li class="mdl-menu__item" disabled>Ipsum</li>
+              <li class="mdl-menu__item">Dolor</li>
+            </ul>
+          </section>
+            
+          </div>
+          
           <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
             <div class="mdl-card mdl-cell mdl-cell--12-col">
               <div class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">

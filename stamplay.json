@@ -5,6 +5,8 @@
   "ignore": [
     "stamplay.json",
     "**/.*",
-    "**/node_modules/**"
+    "**/node_modules/**",
+    "**/bower_components/**",
+    "**/angular/**"
   ]
 }
