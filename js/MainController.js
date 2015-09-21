@@ -3,43 +3,64 @@ angular.module('JMU', ['ngStamplay', 'ngRoute'])
   .controller('MainCtrl', function ($scope, $stamplay) {
   var user = $stamplay.User().Model;
   
+
+  
+  $scope.rideArray =  [
+    {id:1, name:'hans'},
+    {id:2, name:'peter'}
+  ];
+  
   $scope.login = function () {
     user.login($scope.loginMail, $scope.password).then(function () {
       console.log("successfully logged in!");
-      
-      $scope.username = user.get('displayName');
-      $scope.loginMail = " ";
-      $scope.password = " ";
+      window.location.href = "/index.html";
     });
   };
-  
+
   $scope.logout = function () {
-     user.logout();
-     console.log("ausgeloggt");
+    user.logout();
+    console.log("logging out...");
+    window.location.href = "/index.html";
   };
   
-  user.currentUser()
-            .then(function () {
-              var userId = user.get('_id');  
-              
-              if (userId)
-              {
-                console.log(userId);
-                console.log(user.get('displayName')); 
-                $scope.username = user.get('displayName');
-        
-              }
-              else
-              {
-                  $scope.username = 'Nicht eingeloggt';
-              }
-               
-            })
-            .catch(function (err) {
-                //MANAGE err
-            });
-
+  $scope.createGroup = function () {
+    var rideInstance = $stamplay.Cobject('ride').Model;
     
+    rideInstance.set('to', $scope.to);
+    rideInstance.set('from', $scope.from);
+    rideInstance.save().then(function () {
+      //The SDK saved succesfully the dinner object instance
+    }, function (err) {
+        //Something went wrong, the SDK returns the error
+      });
+      $scope.to = "";
+      $scope.from = "";
+  };
+  
+    $scope.getRides = function () {
+      $scope.rideCollection = $stamplay.Cobject('ride').Collection;
+      $scope.rideCollection.select('to').select('from').fetch().then(function() {
+      Console.log($scope.rideCollection);
+       // returns the first 20 dinners with only title attribute
+      });
+  };
+  
   /* GET the current logged use data */
+  user.currentUser()
+    .then(function () {
+    var userId = user.get('_id');
+    var displayName = user.get('displayName');
 
+    if (userId) {
+      console.log(userId);
+      console.log(displayName);
+    }
+    else {
+    console.log("logged out...");
+    }
+
+  })
+    .catch(function (err) {
+    //MANAGE err
+  });
 });
