@@ -38,11 +38,17 @@ angular.module('JMU', ['ngStamplay', 'ngRoute'])
   };
   
     $scope.getRides = function () {
-      $scope.rideCollection = $stamplay.Cobject('ride').Collection;
-      $scope.rideCollection.select('to').select('from').fetch().then(function() {
-      Console.log($scope.rideCollection);
+      var rideCollection = $stamplay.Cobject('ride').Collection;
+      rideCollection.select('to').select('from').fetch().then(function() {
+        $scope.rideColl = rideCollection.instance;
+        console.log(rideCollection.instance);
+        console.log($scope.rideColl.instance[1].instance);
        // returns the first 20 dinners with only title attribute
       });
+  };
+  
+  var testfunction = function () {
+    console.log("pressed");
   };
   
   /* GET the current logged use data */
