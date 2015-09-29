@@ -1,5 +1,6 @@
 Stamplay.init("joinmyuber");
 var user = new Stamplay.User().Model;
+var rideCollection = new Stamplay.Cobject('ride').Collection;
 
 $(document).ready(function () {
 
@@ -15,7 +16,7 @@ $(document).ready(function () {
 
   $('#getrides').on('click', function (e) {
     e.preventDefault();
-   getCollectionRides();
+    getCollectionRides();
   });
   
   $('#creategroup').on('click', function (e) {
@@ -43,7 +44,6 @@ $(document).ready(function () {
 
   
  function getCollectionRides() {
-     var rideCollection = new Stamplay.Cobject('ride').Collection;
       rideCollection.select('to').select('from').fetch().then(function() {
       Console.log(rideCollection);
        // returns the first 20 dinners with only title attribute

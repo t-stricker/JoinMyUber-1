@@ -2,18 +2,24 @@ angular.module('JMU', ['ngStamplay', 'ngRoute'])
 
   .controller('MainCtrl', function ($scope, $stamplay) {
   var user = $stamplay.User().Model;
-  
+  var rideCollection = $stamplay.Cobject('ride').Collection;
+  $scope.rideColl = [];
 
-  
-  $scope.rideArray =  [
-    {id:1, name:'hans'},
-    {id:2, name:'peter'}
+  $scope.init = function () {
+    console.log("init function called");
+    $scope.getRides();
+  };
+
+  $scope.rideArray = [
+    { id: 1, name: 'hans' },
+    { id: 2, name: 'peter' }
   ];
-  
+
   $scope.login = function () {
     user.login($scope.loginMail, $scope.password).then(function () {
       console.log("successfully logged in!");
       window.location.href = "/index.html";
+
     });
   };
 
@@ -22,10 +28,10 @@ angular.module('JMU', ['ngStamplay', 'ngRoute'])
     console.log("logging out...");
     window.location.href = "/index.html";
   };
-  
+
   $scope.createGroup = function () {
     var rideInstance = $stamplay.Cobject('ride').Model;
-    
+
     rideInstance.set('to', $scope.to);
     rideInstance.set('from', $scope.from);
     rideInstance.save().then(function () {
@@ -33,20 +39,22 @@ angular.module('JMU', ['ngStamplay', 'ngRoute'])
     }, function (err) {
         //Something went wrong, the SDK returns the error
       });
-      $scope.to = "";
-      $scope.from = "";
+    $scope.to = "";
+    $scope.from = "";
   };
-  
-    $scope.getRides = function () {
-      var rideCollection = $stamplay.Cobject('ride').Collection;
-      rideCollection.select('to').select('from').fetch().then(function() {
-        $scope.rideColl = rideCollection.instance;
-        console.log(rideCollection.instance);
-        console.log($scope.rideColl.instance[1].instance);
-       // returns the first 20 dinners with only title attribute
-      });
+
+  $scope.getRides = function () {
+
+    console.log("rides called");
+
+    rideCollection.select('to').select('from').fetch().then(function () {
+      $scope.rideColl = rideCollection.instance;
+      console.log(rideCollection.instance);
+      console.log($scope.rideColl[1].instance);
+      // returns the first 20 entries
+    });
   };
-  
+
   var testfunction = function () {
     console.log("pressed");
   };
@@ -62,7 +70,7 @@ angular.module('JMU', ['ngStamplay', 'ngRoute'])
       console.log(displayName);
     }
     else {
-    console.log("logged out...");
+      console.log("logged out...");
     }
 
   })

@@ -32,24 +32,17 @@ See the License for the specific language governing permissions and limitations 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="material.css">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="css/jmu.css">       
-       <!-- Jquery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-   
-       <!-- Stamplay -->
+    <link rel="stylesheet" href="css/jmu.css">
+    <!-- Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <!-- Stamplay -->
     <script src="https://drrjhlchpvi7e.cloudfront.net/libs/stamplay-js-sdk/1.2.9/stamplay.min.js"></script>
-  
-     <!-- AngularJS -->
-       
+    <!-- AngularJS -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
     <script src="js/angular-route.min.js"></script>
-  
-      
-         <!-- AngularJS Stamplay-->
-     <script src="js/angular-stamplay.js"></script>
-        <script src="js/MainController.js"></script>
-   
-     
+    <!-- AngularJS Stamplay-->
+    <script src="js/angular-stamplay.js"></script>
+    <script src="js/MainController.js"></script>
     <style>
       #view-source {
         position: fixed;
@@ -78,7 +71,7 @@ See the License for the specific language governing permissions and limitations 
           <span class="login">
             <form>Email:
               <input ng-model="loginMail" name="email" type="email">Password:
-              <input ng-model="password" name="pass" type="password">       
+              <input ng-model="password" name="pass" type="password">
               <button ng-click="login()">Login</button>
               <button ng-click="logout()">Logout2</button>
             </form>
@@ -96,11 +89,46 @@ See the License for the specific language governing permissions and limitations 
         <div class="mdl-layout__tab-panel is-active" id="overview">
           <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
             <header class="section__play-btn mdl-cell mdl-cell--3-col-desktop mdl-cell--2-col-tablet mdl-cell--4-col-phone mdl-color--teal-100 mdl-color-text--white">
+              <i class="material-icons">group_work</i>
+            </header>
+            <div class="mdl-card mdl-cell mdl-cell--9-col-desktop mdl-cell--6-col-tablet mdl-cell--4-col-phone">
+              <div class="mdl-card__supporting-text">
+                <h4>Create a new Group</h4>
+                <form>To:
+                  <input ng-model="to" name="to" type="text" required>
+                  <br/>From:
+                  <input ng-model="from" name="from" type="text" required>
+                  <br/>
+                  <input type="button" ng-click="createGroup()" value="create Group" />
+                  <input type="button" ng-click="getRides()" value="get Console rides" />
+                </form>
+              </div>
+              <div class="mdl-card__actions">
+                <a href="#" class="mdl-button">JOIN GROUP</a>
+              </div>
+            </div>
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="btn1">
+              <i class="material-icons">more_vert</i>
+            </button>
+            <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right" for="btn1">
+              <li class="mdl-menu__item">Lorem</li>
+              <li class="mdl-menu__item" disabled>Ipsum</li>
+              <li class="mdl-menu__item">Dolor</li>
+            </ul>
+          </section>
+          <!-- *************************************** -->
+          <!-- * SECTION * -->
+          <!-- * Show Rides Card * -->
+          <!-- * * -->
+          <!-- *************************************** -->
+          <div ng-init="getRides()">
+          <section ng-repeat="rides in rideColl" class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+            <header class="section__play-btn mdl-cell mdl-cell--3-col-desktop mdl-cell--2-col-tablet mdl-cell--4-col-phone mdl-color--teal-100 mdl-color-text--white">
               <i class="material-icons">directions_car</i>
             </header>
             <div class="mdl-card mdl-cell mdl-cell--9-col-desktop mdl-cell--6-col-tablet mdl-cell--4-col-phone">
               <div class="mdl-card__supporting-text">
-                <h4>From TEC to Chapultepec</h4>
+                <h4>From {{rides.instance.from}} to {{rides.instance.to}}</h4>
                 <strong>Departure:</strong>15 minutes
                 <br/>
                 <strong>Free seats:</strong>3
@@ -121,41 +149,6 @@ See the License for the specific language governing permissions and limitations 
               <li class="mdl-menu__item">Dolor</li>
             </ul>
           </section>
-     
-          
-          <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
-            <header class="section__play-btn mdl-cell mdl-cell--3-col-desktop mdl-cell--2-col-tablet mdl-cell--4-col-phone mdl-color--teal-100 mdl-color-text--white">
-              <i class="material-icons">group_work</i>
-            </header>
-            <div class="mdl-card mdl-cell mdl-cell--9-col-desktop mdl-cell--6-col-tablet mdl-cell--4-col-phone">
-              <div class="mdl-card__supporting-text">
-                <h4>Create a new Group</h4>
-                <form>
-                  To:
-                  <input ng-model="to" name="to" type="text" required>
-                  <br/>From:
-                  <input ng-model="from" name="from" type="text" required>
-                  <br/>
-                   <input type="button" ng-click="createGroup()" value="create Group" />
-                   <input type="button" ng-click="getRides()" value="get Console rides" />                                
-                  </form>
-              </div>
-              <div class="mdl-card__actions">
-                <a href="#" class="mdl-button">JOIN GROUP</a>
-              </div>
-            </div>
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="btn1">
-              <i class="material-icons">more_vert</i>
-            </button>
-            <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right" for="btn1">
-              <li class="mdl-menu__item">Lorem</li>
-              <li class="mdl-menu__item" disabled>Ipsum</li>
-              <li class="mdl-menu__item">Dolor</li>
-            </ul>
-          </section>    
-               
-        	<div ng-repeat="rides in rideColl">
-            1 <br/> {{rides.to}} <br/> {{rides.from}} <br/>
           </div>
           
           <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
