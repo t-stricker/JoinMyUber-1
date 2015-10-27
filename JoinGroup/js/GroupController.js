@@ -5,10 +5,30 @@ angular.module('JMU', ['ngStamplay', 'ngRoute'], function ($locationProvider) {
   });
 })
   .controller('GroupCtrl', function ($scope, $location) {
+  var user = $stamplay.User().Model;
+
   $scope.init = function () {
     console.log("init function called");
 
   };
-  $scope.target = $location.search()['tid'];
+  $scope.id = $location.search()['id'];
 
+  /* GET the current logged use data */
+  user.currentUser()
+    .then(function () {
+    var userId = user.get('_id');
+    var displayName = user.get('displayName');
+
+    if (userId) {
+      console.log(userId);
+      console.log(displayName);
+    }
+    else {
+      console.log("logged out...");
+    }
+
+  })
+    .catch(function (err) {
+    //MANAGE err
+  });
 });
