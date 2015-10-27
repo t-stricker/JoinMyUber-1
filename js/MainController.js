@@ -28,8 +28,13 @@ angular.module('JMU', ['ngStamplay', 'ngRoute'])
     console.log("logging out...");
     window.location.href = "/index.html";
   };
+  
+    $scope.openCreateGroup = function () {
+    window.location.href = "article/index.html";
+  };
 
   $scope.createGroup = function () {
+    console.log("create new group...");
     var rideInstance = $stamplay.Cobject('ride').Model;
 
     rideInstance.set('to', $scope.to);
