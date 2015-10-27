@@ -14,18 +14,9 @@
     <!-- Add to homescreen for Safari on iOS -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="Material Design Lite">
-    <link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png">
-    <!-- Tile icon for Win8 (144x144 + tile color) -->
-    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
-    <meta name="msapplication-TileColor" content="#3372DF">
-    <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones
-    -->
-    <!-- <link rel="canonical" href="http://www.example.com/">
-    -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en"
-    rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta name="apple-mobile-web-app-title" content="Join My Uber">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="material.css">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="css/jmu.css">
@@ -39,17 +30,6 @@
     <!-- AngularJS Stamplay-->
     <script src="js/angular-stamplay.js"></script>
     <script src="js/MainController.js"></script>
-    <style>
-      #view-source {
-        position: fixed;
-        display: block;
-        right: 0;
-        bottom: 0;
-        margin-right: 40px;
-        margin-bottom: 40px;
-        z-index: 900;
-      }
-    </style>
   </head>
   
   <body ng-controller="MainCtrl as ctrl" ng-init="init()" class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
@@ -67,7 +47,7 @@
               <input ng-model="loginMail" name="email" type="email">Password:
               <input ng-model="password" name="pass" type="password">
               <button ng-click="login()">Login</button>
-              <button ng-click="logout()">Logout2</button>
+              <button ng-click="logout()">Logout</button>
             </form>
           </span>
           <a class="mdl-layout__tab"></a>
