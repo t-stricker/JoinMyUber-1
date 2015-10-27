@@ -61,7 +61,8 @@
     <!-- AngularJS Stamplay-->
     <script src="../js/angular-stamplay.js"></script>
     
-      <script src="/js/GroupController.js"></script>
+     <script src="js/GroupController.js"></script>
+     <!--<script src="../js/MainController.js"></script>-->
     <style>
       
       
@@ -76,7 +77,7 @@
     }
     </style>
   </head>
-  <body ng-controller="GroupCtrl as ctrl">
+  <body ng-controller="GroupCtrl as ctrl" ng-init="init()">
     <div class="demo-layout mdl-layout mdl-layout--fixed-header mdl-js-layout mdl-color--grey-100">
       
       
@@ -92,8 +93,10 @@
      
              <div class="mdl-card mdl-cell mdl-cell--9-col-desktop mdl-cell--6-col-tablet mdl-cell--4-col-phone">
               <div class="mdl-card__supporting-text">
-                <h4>Join the group </h4>
-                
+                <h4>Join the group {{id}}</h4>
+                <p>With user id {{userID}}</p>
+              <input type="button" ng-click="go()" value="go" />
+              
                 
               </div>
              
@@ -113,6 +116,6 @@
       </main>
     </div>
     <a href="https://github.com/google/material-design-lite/blob/master/templates/article/" target="_blank" id="view-source" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">View Source</a>
-    <script src="../material.js"></script>
+    <script src="../js/material.js"></script>
   </body>
 </html>
