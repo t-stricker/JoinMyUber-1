@@ -19,6 +19,7 @@ angular.module('JMU', ['ngStamplay', 'ngRoute'])
     user.login($scope.loginMail, $scope.password).then(function () {
       console.log("successfully logged in!");
       window.location.href = "/index.html";
+      
 
     });
   };
@@ -88,6 +89,7 @@ angular.module('JMU', ['ngStamplay', 'ngRoute'])
     if (userId) {
       console.log(userId);
       console.log(displayName);
+      $scope.getRides();
     }
     else {
       console.log("logged out...");
