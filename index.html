@@ -33,8 +33,8 @@
     <script src="js/material.js"></script>
   </head>
   
-  <body ng-controller="MainCtrl as ctrl" class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
-    
+  <body ng-controller="MainCtrl as ctrl" ng-init="init()" class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
+
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
       
       <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
@@ -136,9 +136,10 @@
                 <br/>
                 <strong>Group administrator:</strong>Timo Stricker
                 <br/>
+                <strong>Group ID</strong> {{rides.instance._id}}
               </div>
               <div class="mdl-card__actions">
-                <a href="#" class="mdl-button">JOIN GROUP</a>
+                <a href="#" ng-click="joinGroup(rides.instance._id)" class="mdl-button">JOIN GROUP</a>
               </div>
             </div>
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="btn1">

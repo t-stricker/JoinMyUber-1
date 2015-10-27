@@ -29,6 +29,14 @@ angular.module('JMU', ['ngStamplay', 'ngRoute'])
     window.location.href = "/index.html";
   };
   
+   $scope.joinGroup = function (id) {
+     
+    console.log("join group pressed id is" + id);
+    window.location.href = "JoinGroup/group.html?id=" + id;
+    
+    
+  };
+  
     $scope.openCreateGroup = function () {
     window.location.href = "article/index.html";
   };
