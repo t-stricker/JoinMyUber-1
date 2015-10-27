@@ -29,6 +29,13 @@ angular.module('JMU', ['ngStamplay', 'ngRoute'])
     window.location.href = "/index.html";
   };
   
+  $scope.signup = function () {
+    user.signup().then(function () {
+      console.log("successfully signed-up!");
+      window.location.href = "/index.html";
+    });
+  };
+  
    $scope.joinGroup = function (id) {
      
     console.log("join group pressed id is" + id);
