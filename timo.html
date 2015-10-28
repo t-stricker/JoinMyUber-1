@@ -1,0 +1,25 @@
+<html ng-app="Timo">
+	<head>
+	<!-- Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <!-- Stamplay -->
+    <script src="https://drrjhlchpvi7e.cloudfront.net/libs/stamplay-js-sdk/1.2.9/stamplay.min.js"></script>
+    <!-- AngularJS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
+    <script src="js/angular-route.min.js"></script>
+    <!-- AngularJS Stamplay-->
+    <script src="js/angular-stamplay.js"></script>
+	<!-- TimoController -->
+	<script src="js/TimoController.js"></script>
+		
+	</head>
+	<body ng-controller="TimoController as tc">
+		<div ng-repeat="product in tc.products">
+				{{product.name}}
+		</div>
+		{{tc.ti}}
+		{{tc.userId}}
+	
+		
+	</body>
+</html>

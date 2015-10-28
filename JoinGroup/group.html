@@ -15,7 +15,7 @@
   See the License for the specific language governing permissions and
   limitations under the License
 -->
-<html ng-app="JMU" lang="en">
+<html ng-app="JMUnew" lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -77,8 +77,8 @@
     }
     </style>
   </head>
-  <body ng-controller="GroupCtrl as ctrl" ng-init="init()">
-    <div class="demo-layout mdl-layout mdl-layout--fixed-header mdl-js-layout mdl-color--grey-100">
+  <body>
+    <div ng-controller="GroupCtrl as ctrl"> class="demo-layout mdl-layout mdl-layout--fixed-header mdl-js-layout mdl-color--grey-100">
       
       
       <div class="demo-ribbon"></div>
@@ -96,6 +96,12 @@
                 <h4>Join the group {{id}}</h4>
                 <p>With user id {{userID}}</p>
               <input type="button" ng-click="go()" value="go" />
+           
+               {{rideInstance.instance.from}}
+               {{ctrl.rideInstance.to}}
+               {{ctrl.rideInstance.instance.to}}
+               
+             </div>
               
                 
               </div>
@@ -116,6 +122,6 @@
       </main>
     </div>
     <a href="https://github.com/google/material-design-lite/blob/master/templates/article/" target="_blank" id="view-source" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">View Source</a>
-    <script src="../js/material.js"></script>
+    <!--<script src="../js/material.js"></script>-->
   </body>
 </html>
