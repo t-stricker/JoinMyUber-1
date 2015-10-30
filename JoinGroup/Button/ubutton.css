@@ -1,0 +1,24 @@
+#ubutton-time{
+	background-image: url("logo.png");
+	background-repeat: no-repeat;
+	background-size: 42px;
+	float: left;
+	display: inline-block;
+	text-align: right;
+	width: 264px;
+	padding-top: 12px;
+	padding-bottom: 12px;
+	padding-right: 14px;
+	color: #09091A;
+	font-family: HelveticaNeue, Helvetica, sans-serif;
+/*	border: #DFDFE3 solid 1px ; 
+-webkit-box-shadow: 0px 11px 71px -1px rgba(0,0,0,0.35);
+-moz-box-shadow: 0px 11px 71px -1px rgba(0,0,0,0.35);
+box-shadow: 0px 11px 71px -1px rgba(0,0,0,0.35);
+*/
+border-radius: 10px 10px 10px 10px;
+-moz-border-radius: 10px 10px 10px 10px;
+-webkit-border-radius: 10px 10px 10px 10px;
+border: 1px solid #000000;
+}
+
