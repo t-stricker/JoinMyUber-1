@@ -1,19 +1,56 @@
-angular.module('JMU', ['ngStamplay', 'ngRoute'])
+var JMU = angular.module('JMU', ['mdl','ngStamplay']);
+JMU.config(function (mdlConfigProvider){
+        "use strict";
+        // mdlConfigProvider.floating = false;
+        // mdlConfigProvider.rippleEffect = false;
+    });
+    
+  /*
+  .run(function ($rootScope,$timeout) {
+        $rootScope.$on('$viewContentLoaded', ()=> {
+          $timeout(() => {
+            componentHandler.upgradeAllRegistered();
+          })
+        })
+      })
 
-  .controller('MainCtrl', function ($scope, $stamplay) {
+.factory('myService', function () {
+        return {
+            say: function () {
+              return "fuu";
+                //return "Hello World";
+            }
+        }
+    })
+    */
+
+
+JMU.controller('MainCtrl', function ($scope, $stamplay) {
   var user = $stamplay.User().Model;
   var rideCollection = $stamplay.Cobject('ride').Collection;
+  
+  $scope.say = "";
+  $scope.userId = "";
+  $scope.displayName = "";
+  
+  $scope.test = function() {
+    $scope.say = "fickdich";
+  }
+ 
+   
+   
+   
+   
+   
+  
   $scope.rideColl = [];
 
   $scope.init = function () {
     console.log("init function called");
-    $scope.getRides();
+    $scope.test();
+    $scope.getuser();
+    //getRides();
   };
-
-  $scope.rideArray = [
-    { id: 1, name: 'hans' },
-    { id: 2, name: 'peter' }
-  ];
 
   $scope.login = function () {
     user.login($scope.loginMail, $scope.password).then(function () {
@@ -64,31 +101,31 @@ angular.module('JMU', ['ngStamplay', 'ngRoute'])
     $scope.from = "";
   };
 
-  $scope.getRides = function () {
+  var getRidesFunction = function () {
 
     console.log("rides called");
 
     rideCollection.select('to').select('from').fetch().then(function () {
       $scope.rideColl = rideCollection.instance;
-      console.log(rideCollection.instance);
-      console.log($scope.rideColl[1].instance);
+      //console.log(rideCollection.instance);
+      //console.log($scope.rideColl[1].instance);
       // returns the first 20 entries
     });
   };
 
-  var testfunction = function () {
-    console.log("pressed");
-  };
   
   /* GET the current logged use data */
-  user.currentUser()
+  $scope.getuser = function() {
+    user.currentUser()
     .then(function () {
-    var userId = user.get('_id');
-    var displayName = user.get('displayName');
+    $scope.userId = user.get('_id');
+    $scope.displayName = user.get('displayName');
+     //$scope.uID = userId;
+     //$scope.uName = dispalyName;
 
-    if (userId) {
-      console.log(userId);
-      console.log(displayName);
+    if ($scope.userId) {
+      console.log($scope.userId);
+      console.log($scope.displayName);
       $scope.getRides();
     }
     else {
@@ -99,4 +136,6 @@ angular.module('JMU', ['ngStamplay', 'ngRoute'])
     .catch(function (err) {
     //MANAGE err
   });
+  };
+  
 });
